@@ -46,6 +46,7 @@ end)
 
 RegisterNetEvent("eric_carlock:lockcar")
 AddEventHandler("eric_carlock:lockcar", function(vehicle)
+    print(\nThis script is made by AiReiKe\n)
     local dict = "anim@mp_player_intmenu@key_fob@"
     RequestAnimDict(dict)
     while not HasAnimDictLoaded(dict) do
