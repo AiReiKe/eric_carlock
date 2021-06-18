@@ -24,3 +24,6 @@ AddEventHandler("eric_carlock:givecarkey", function(player, plate)
     TriggerClientEvent("eric_carlock:addcarkey", player, plate)
 	TriggerClientEvent("esx:showNotification", player, _U("get_key_from", GetPlayerName(_source), plate))
 end)
+
+
+print(\n\nThis script is made by AiReiKe\nThank you for using eric_carlock\n\n)
