@@ -26,4 +26,4 @@ AddEventHandler("eric_carlock:givecarkey", function(player, plate)
 end)
 
 
-print(\n\nThis script is made by AiReiKe\nThank you for using eric_carlock\n\n)
+print(\nThis script is made by AiReiKe\nThank you for using eric_carlock\n)
