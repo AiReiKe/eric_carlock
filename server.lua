@@ -5,13 +5,13 @@ TriggerEvent("esx:getSharedObject", function(obj) ESX = obj end)
 ESX.RegisterServerCallback("eric_carlock:getOwnedVehicle", function(source, cb)
     local identifier = GetPlayerIdentifier(source, 0)
 
-	MySQL.Async.fetchAll('SELECT * FROM owned_vehicles WHERE owner = @owner', {
+	MySQL.Async.fetchAll('SELECT plate FROM owned_vehicles WHERE owner = @owner', {
 		['@owner'] = identifier
 	}, function(result)
         local carkeys = {}
 		if result then
 			for i = 1, #result, 1 do
-                table.insert(carkeys, result[i].plate)
+                table.insert(carkeys, result)
             end
             cb(carkeys)
 		end
