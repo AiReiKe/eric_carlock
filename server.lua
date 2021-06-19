@@ -8,8 +8,11 @@ ESX.RegisterServerCallback("eric_carlock:getOwnedVehicle", function(source, cb)
 	MySQL.Async.fetchAll('SELECT plate FROM owned_vehicles WHERE owner = @owner', {
 		['@owner'] = identifier
 	}, function(result)
+
+		if result then
             cb(result)
 		end
+		
 	end)
 end)
 
