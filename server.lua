@@ -8,9 +8,12 @@ ESX.RegisterServerCallback("eric_carlock:getOwnedVehicle", function(source, cb)
 	MySQL.Async.fetchAll('SELECT plate FROM owned_vehicles WHERE owner = @owner', {
 		['@owner'] = identifier
 	}, function(result)
-
+		local carkey = {} 
 		if result then
-            cb(result)
+			for k,v in pairs(result) do
+				table.insert(carkey, v.plate)
+			end
+            cb(carkey)
 		end
 		
 	end)
@@ -24,4 +27,4 @@ AddEventHandler("eric_carlock:givecarkey", function(player, plate)
 end)
 
 
-print(\nThis script is made by AiReiKe\nThank you for using eric_carlock\n)
+print('\nThis script is made by AiReiKe\nThank you for using eric_carlock\n')
