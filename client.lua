@@ -37,7 +37,7 @@ AddEventHandler("eric_carlock:searchcar", function()
     end
 
     if DoesEntityExist(vehicle) then
-        local plate = GetVehicleNumberPlateText(vehicle)
+        local plate = ESX.Math.Trim(GetVehicleNumberPlateText(vehicle))
 
         for k, v in pairs(carkeys)do
             if v == plate then
