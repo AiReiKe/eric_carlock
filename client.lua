@@ -5,7 +5,10 @@ TriggerEvent("esx:getSharedObject", function(obj) ESX = obj end)
 local carkeys = {}
 local lockDisable = false
 
-AddEventHandler('onClientResourceStart', function()
+Citizen.CreateThread(function()
+    TriggerEvent("chat:addSuggestion", "carkey", _U("carkey_command"))
+    TriggerEvent("chat:addSuggestion", "refreshcarkey", _U("refresh_command"))
+        
     carkeys = {}
 
     ESX.TriggerServerCallback("eric_carlock:getOwnedVehicle", function(vehicles)
@@ -116,7 +119,7 @@ function OpenCarKeysMenu()
 
     ESX.UI.Menu.Open("default", GetCurrentResourceName(), 'owned_carkeys',
     {
-        label = _U('owned_keys'),
+        title = _U('owned_keys'),
         elements = elements
     }, function(data, menu)
         local carkey = data.current.value
