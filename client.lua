@@ -6,8 +6,8 @@ local carkeys = {}
 local lockDisable = false
 
 Citizen.CreateThread(function()
-    TriggerEvent("chat:addSuggestion", "carkey", _U("carkey_command"))
-    TriggerEvent("chat:addSuggestion", "refreshcarkey", _U("refresh_command"))
+    TriggerEvent("chat:addSuggestion", "/carkey", _U("carkey_command"))
+    TriggerEvent("chat:addSuggestion", "/refreshcarkey", _U("refresh_command"))
         
     carkeys = {}
 
