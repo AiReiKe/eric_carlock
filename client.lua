@@ -8,7 +8,11 @@ local lockDisable = false
 Citizen.CreateThread(function()
     TriggerEvent("chat:addSuggestion", "/carkey", _U("carkey_command"))
     TriggerEvent("chat:addSuggestion", "/refreshcarkey", _U("refresh_command"))
-        
+
+    while not ESX.IsPlayerLoaded() do
+        Citizen.Wait(50)
+    end
+    
     carkeys = {}
 
     ESX.TriggerServerCallback("eric_carlock:getOwnedVehicle", function(vehicles)
